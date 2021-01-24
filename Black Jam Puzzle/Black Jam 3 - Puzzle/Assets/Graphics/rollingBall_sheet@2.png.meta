@@ -17,6 +17,9 @@ TextureImporter:
   - first:
       213: -6584756572206390467
     second: rollingBall_sheet@2_4
+  - first:
+      213: -1312143550885732741
+    second: rollingBall_sheet@2_5
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -244,7 +247,7 @@ TextureImporter:
         width: 71
         height: 68
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -252,6 +255,27 @@ TextureImporter:
       bones: []
       spriteID: d33283df8ce3e94a0800000000000000
       internalID: -6584756572206390467
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rollingBall_sheet@2_5
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 94
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b7ed22b74645acde0800000000000000
+      internalID: -1312143550885732741
       vertices: []
       indices: 
       edges: []
