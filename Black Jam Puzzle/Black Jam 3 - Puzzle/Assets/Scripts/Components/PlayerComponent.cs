@@ -5,8 +5,9 @@ using Mikabrytu.BJ3.Systems;
 
 namespace Mikabrytu.BJ3.Components
 {
-    public class PlayerComponent : MonoBehaviour, IPicker
+    public class PlayerComponent : MonoBehaviour, IPlayer
     {
+        [SerializeField] private Transform _originalPosition;
         [SerializeField] private Transform _picker;
         [SerializeField] private float _speed = 10f;
 
@@ -33,6 +34,11 @@ namespace Mikabrytu.BJ3.Components
             // TODO: Remove this DEBUG
             if (Input.GetMouseButtonDown(0))
                 EventManager.Raise(new OnPickableDropEvent());
+        }
+
+        public void ResetPlayer()
+        {
+            transform.position = _originalPosition.position;
         }
 
         public Vector3 GetPosition()
