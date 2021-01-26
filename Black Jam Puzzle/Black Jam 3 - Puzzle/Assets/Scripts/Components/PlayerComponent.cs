@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using DG.Tweening;
 
 using Mikabrytu.BJ3.Events;
 using Mikabrytu.BJ3.Systems;
@@ -12,6 +13,7 @@ namespace Mikabrytu.BJ3.Components
         [SerializeField] private float _speed = 10f;
 
         private MoveSystem moveSystem;
+        private bool canMove = true;
 
         private void Start()
         {
@@ -20,16 +22,19 @@ namespace Mikabrytu.BJ3.Components
 
         private void Update()
         {
-            float h = Input.GetAxisRaw("Horizontal");
-
-            if (h != 0)
+            if (canMove)
             {
-                Vector2 pickerPosition = _picker.localPosition;
-                pickerPosition.x = h;
-                _picker.localPosition = pickerPosition;
-            }
+                float h = Input.GetAxisRaw("Horizontal");
 
-            moveSystem.Move(new Vector2(h, Input.GetAxis("Vertical")));
+                if (h != 0)
+                {
+                    Vector2 pickerPosition = _picker.localPosition;
+                    pickerPosition.x = h;
+                    _picker.localPosition = pickerPosition;
+                }
+
+                moveSystem.Move(new Vector2(h, Input.GetAxis("Vertical")));
+            }
 
             // TODO: Remove this DEBUG
             if (Input.GetMouseButtonDown(0))
@@ -44,6 +49,19 @@ namespace Mikabrytu.BJ3.Components
         public Vector3 GetPosition()
         {
             return _picker.position;
+        }
+
+        public void Teleport(Transform position)
+        {
+            GetComponent<Collider2D>().enabled = false;
+            canMove = false;
+
+            transform
+                .DOMove(position.position, .25f)
+                .OnComplete(() => {
+                    GetComponent<Collider2D>().enabled = true;
+                    canMove = true;
+                });
         }
     }
 }
