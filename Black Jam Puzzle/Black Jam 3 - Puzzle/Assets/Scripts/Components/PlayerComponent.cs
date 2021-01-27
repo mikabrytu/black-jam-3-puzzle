@@ -10,6 +10,7 @@ namespace Mikabrytu.BJ3.Components
     {
         [SerializeField] private Transform _originalPosition;
         [SerializeField] private Transform _picker;
+        [SerializeField] private Animator _animator;
         [SerializeField] private float _speed = 10f;
 
         private MoveSystem moveSystem;
@@ -17,7 +18,7 @@ namespace Mikabrytu.BJ3.Components
 
         private void Start()
         {
-            moveSystem = new MoveSystem(transform, _speed);
+            moveSystem = new MoveSystem(transform, _animator, _speed);
         }
 
         private void Update()
