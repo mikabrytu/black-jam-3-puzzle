@@ -6,7 +6,7 @@ using Mikabrytu.BJ3.Systems;
 
 namespace Mikabrytu.BJ3.Components
 {
-    public class MapComponent : MonoBehaviour
+    public class MapComponent : MonoBehaviour, IMap
     {
         [SerializeField] private Transform[] _rooms;
         [SerializeField] private Transform[] _positions;
