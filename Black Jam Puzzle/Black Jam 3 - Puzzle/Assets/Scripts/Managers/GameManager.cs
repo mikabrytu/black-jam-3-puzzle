@@ -58,6 +58,9 @@ namespace Mikabrytu.BJ3
 
         private void PrepareTimeLoop(OnTimeLoopStartEvent e)
         {
+            if (isRunning)
+                return;
+
             ResetTimeLoop();
             StartTimeLoop();
         }
@@ -119,6 +122,7 @@ namespace Mikabrytu.BJ3
             UpdateScore();
             GenerateMap();
 
+            Camera.main.transform.position = new Vector3(0, 0, -10);
             _player.ResetPlayer();
         }
     }

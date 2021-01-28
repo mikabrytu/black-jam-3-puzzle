@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using DG.Tweening;
 
+using Mikabrytu.BJ3.Events;
 using Mikabrytu.BJ3.Systems;
 
 namespace Mikabrytu.BJ3.Components
@@ -10,6 +11,7 @@ namespace Mikabrytu.BJ3.Components
         [SerializeField] private Transform _entrance;
         [SerializeField] private Vector2 _direction;
         [SerializeField] private string[] _allowedTags;
+        [SerializeField] private bool isFirst = false;
 
         private NavigationSystem navigationSystem;
 
@@ -20,6 +22,9 @@ namespace Mikabrytu.BJ3.Components
 
         private void OnTriggerEnter2D(Collider2D collision)
         {
+            if (isFirst)
+                EventManager.Raise(new OnTimeLoopStartEvent());
+
             navigationSystem.ChangeRoom(collision, transform);
         }
 
