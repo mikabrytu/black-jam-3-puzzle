@@ -12,7 +12,7 @@ namespace Mikabrytu.BJ3
     {
         [SerializeField] private IPlayer _player;
         [SerializeField] private IMap _map;
-        [SerializeField] private IDisplay _timeLoopDisplay;
+        //[SerializeField] private IDisplay _timeLoopDisplay;
         [SerializeField] private float _maxTime = 120;
 
         private int lockedRooms = 3;
